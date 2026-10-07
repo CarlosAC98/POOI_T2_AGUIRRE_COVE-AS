@@ -1,0 +1,60 @@
+﻿@model IEnumerable<POOI_T2_AGUIRRE_COVEÑAS.Models.Alumno>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2> Lista de alumnos </h2>
+
+<p>
+    @Html.ActionLink("Agregar", "Agregar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.dni)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.apellidos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.carrera)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ciclo)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.dni)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apellidos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.carrera)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ciclo)
+            </td>
+            <td>
+                @Html.ActionLink("Actualizar", "Actualizar", new { dni = item.dni }) |
+                @Html.ActionLink("Detalles", "Detalles", new { dni = item.dni }) |
+                @Html.ActionLink("Eliminar", "Eliminar", new { dni = item.dni })
+            </td>
+        </tr>
+    }
+
+    @ViewBag.Mensaje
+
+</table>
